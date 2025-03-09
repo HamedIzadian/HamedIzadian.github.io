@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hamed Izadian - Home</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Hamed Izadian</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="cv.html">CV</a>
+      <a href="projects.html">Projects</a>
+      <a href="research.html">Research</a>
+      <a href="blog.html">Blog</a>
+      <button id="theme-toggle">Toggle Theme</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+      <h2>Welcome to My Portfolio</h2>
+      <p>I am Hamed, an industrial engineer with expertise in Python, GAMS, MATLAB, and more.</p>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline" id="timeline">
+      <h3>Experience & Education</h3>
+      <div class="timeline-item">
+        <div class="date">2023 - Present</div>
+        <div class="title">Current Position</div>
+        <div class="details">
+          <p>Working as a Data Scientist focusing on optimization and simulation projects.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="date">2020 - 2023</div>
+        <div class="title">Previous Role</div>
+        <div class="details">
+          <p>Worked as an Industrial Engineer with a focus on process optimization and supply chain management.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+      <h3>Technical Skills</h3>
+      <div class="skill">
+        <div class="skill-name">Python</div>
+        <div class="skill-bar">
+          <div class="skill-bar-fill" data-percent="90%"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">GAMS</div>
+        <div class="skill-bar">
+          <div class="skill-bar-fill" data-percent="80%"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">MATLAB</div>
+        <div class="skill-bar">
+          <div class="skill-bar-fill" data-percent="75%"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Hamed Izadian</p>
+  </footer>
+
+  <script>
+    // Theme Toggle Functionality
+    const themeToggle = document.getElementById('theme-toggle');
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+    });
+    
+    // Timeline Interactive Toggle
+    document.querySelectorAll('.timeline-item').forEach(item => {
+      item.addEventListener('click', () => {
+        item.classList.toggle('active');
+      });
+    });
+    
+    // Animate Skill Progress Bars on Scroll
+    function animateSkills() {
+      document.querySelectorAll('.skill-bar-fill').forEach(bar => {
+        const rect = bar.getBoundingClientRect();
+        if (rect.top < window.innerHeight) {
+          bar.style.width = bar.getAttribute('data-percent');
+        }
+      });
+    }
+    window.addEventListener('scroll', animateSkills);
+    window.addEventListener('load', animateSkills);
+  </script>
+</body>
+</html>
