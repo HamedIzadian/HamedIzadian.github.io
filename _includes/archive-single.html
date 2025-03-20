@@ -46,7 +46,7 @@
       <p>Published in <i>{{ page.venue }}</i>, {{ page.date | default: "1900-01-01" | date: "%Y" }} </p>
     {% elsif page.venue and page.date and page.category =="books‎"%}
       <p>Published in <i>{{ page.venue }}</i>, {{ page.date | default: "1900-01-01" | date: "%Y" }} </p>  
-    {% elsif page.venue and page.date and page.category =="workingpapers‎" and page.collection == 'publications'%}
+    {% elsif page.venue and page.date and page.category =="workingpapers‎"%}
       <p>Manuscript under preparation</p>  
     {% endif %}
     
