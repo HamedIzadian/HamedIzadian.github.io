@@ -9,7 +9,7 @@ redirect_from:
 
 {% include base_path %}
 
-### Education
+## Education
 ======
 * M.S. in Industrial Engineering (Major in Systems Optimization), Kharazmi University, 2022- 
 * B.S. in Industrial Engineering, University of Tehran, 2018-2022
