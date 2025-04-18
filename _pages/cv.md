@@ -15,7 +15,7 @@ redirect_from:
 * B.S. in Industrial Engineering, University of Tehran, 2018-2022
 
 ## Work experience
-======
+
 * Fall 2023 - Fall 2024: Teaching Assistant 
   * Kharazmi University
   * Duties include: Assigning Projects and Grading Homework 
@@ -26,7 +26,7 @@ redirect_from:
   * Duties included: Time and Motion Study of the Production Process
   
 ## Skills
-======
+
 * Proficient at Python and Metaheuristic Algorithms in MATLAB 
 * Expert level in mathematical modeling in GAMS
 * Experience with Gurobipy and DOCPLEX
@@ -34,11 +34,12 @@ redirect_from:
 * Familiar with HTML, CSS & Java
 
 ## Publications
+
 ### Working Papers
   <ul>{% for post in site.publications reversed %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
   
-Service and leadership
-======
+## Service and leadership
+
 * Secretary of the Cultural Association of the University of Tehran
