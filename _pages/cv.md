@@ -14,50 +14,32 @@ redirect_from:
 * M.S. in Industrial Engineering (Major in Systems Optimization), Kharazmi University, 2022- 
 * B.S. in Industrial Engineering, University of Tehran, 2018-2022
 
-Work experience
+## Work experience
 ======
-* Spring 2024: Academic Pages Collaborator
-  * GitHub University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+* Fall 2023 - Fall 2024: Teaching Assistant 
+  * Kharazmi University
+  * Duties include: Assigning Projects and Grading Homework 
+  * Supervisor: Dr. Hamid Reza Pasandideh
 
-* Fall 2015: Research Assistant
-  * GitHub University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
-
-* Summer 2015: Research Assistant
-  * GitHub University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
+* Jul 2022- Aug 2022: Internship 
+  * Saipa Automotive Company 
+  * Duties included: Time and Motion Study of the Production Process
   
-Skills
+## Skills
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* Proficient at Python and Metaheuristic Algorithms in MATLAB 
+* Expert level in mathematical modeling in GAMS
+* Experience with Gurobipy and DOCPLEX
+* Experience with supervised machine learning algorithms in Python
+* Familiar with HTML, CSS & Java
 
-Publications
+## Publications
 ======
+### Working Papers
   <ul>{% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Talks
-======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul>
-  
-Teaching
-======
-  <ul>{% for post in site.teaching reversed %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
   
 Service and leadership
 ======
-* Currently signed in to 43 different slack teams
+* Secretary of the Cultural Association of the University of Tehran
