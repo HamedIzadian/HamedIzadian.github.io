@@ -34,7 +34,6 @@ redirect_from:
 * Familiar with HTML, CSS & Java
 
 ## Publications
-======
 ### Working Papers
   <ul>{% for post in site.publications reversed %}
     {% include archive-single-cv.html %}
