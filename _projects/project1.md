@@ -1,8 +1,8 @@
 ---
-title: "Portfolio item number 1"
-excerpt: "Short description of portfolio item number 1<br/><img src='/images/500x300.png'>"
+title: "Bike Sharing Demand Prediction"
+excerpt: "I’ll predict bike-sharing demand using machine learning and data mining.<br/><img src='/images/Bike_Sharing_1.png'>"
 collection: projects
 ---
 
-This is an item in your portfolio. It can be have images or nice text. If you name the file .md, it will be parsed as markdown. If you name the file .html, it will be parsed as HTML. 
+In this project, I’ll build a demand forecasting pipeline that combines historical rental counts with weather and time-of-day features to predict hourly bike-sharing usage. I’ll implement and compare several machine learning and data mining algorithms, such as linear regression, SVM, gradient boosting, and XGBoost, using cross-validation. Finally, I’ll evaluate each model (RMSE, MAE) and analyze feature importances to guide dynamic bike redistribution.
 
