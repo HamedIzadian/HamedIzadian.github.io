@@ -17,7 +17,12 @@ Now, let’s briefly explain our problem and how this prediction can help busine
 
 ### 2-1- Imports % Settings: 
 
-<pre style="font-size: 18px;">
-def hello():
-    print("Hello, World!")
+<pre style="font-size: 15px;">
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+%matplotlib inline
+sns.set_context("talk")
 </pre>
