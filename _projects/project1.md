@@ -13,11 +13,11 @@ In this project, I aim to learn and teach at the same time. That's why I started
 Now, let’s briefly explain our problem and how this prediction can help businesses increase their efficiency and profitability. In recent years, many businesses have sought to improve public transportation through bike-sharing systems. It is crucial for them to understand their future demand so they can make better decisions that lead to increased profits. Some costs, such as maintenance and establishing parking lots for bikes, can become significantly high if there is an excess of available bikes. Conversely, having a shortage of available bikes compared to demand can result in a revenue loss, making it essential to accurately predict bike-sharing demand.
 
 
-## 2- Let's see what we are dealing with!
+# 2- Let's see what we are dealing with!
 
-### 2-1- Imports % Settings: 
+## 2-1- Imports % Settings: 
 
-<pre style="font-size: 15px;">
+<pre style="font-size: 16px;">
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
