@@ -22,7 +22,18 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+from scipy import stats
 
 %matplotlib inline
 sns.set_context("talk")
 </pre>
+
+* We are importing `Pandas` for data manipulation, cleaning, and exploration.
+* `NumPy` is essential for numerical operations.
+* `Matplotlib` is for basic plotting and quick visualization of distributions and trends.
+* `Seaborn` provides more elegant and complex visualizations, especially statistical plots.
+* `SciPy` would be helpful for statistical analysis, like handling outliers.
+
+We will import other libraries later! 
+
+
