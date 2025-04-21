@@ -15,7 +15,7 @@ Now, let’s briefly explain our problem and how this prediction can help busine
 
 # 2- Let's see what we are dealing with!
 
-## 2-1- Imports % Settings: 
+## 2-1- Imports & Settings: 
 
 <pre style="font-size: 16px;">
 import pandas as pd
