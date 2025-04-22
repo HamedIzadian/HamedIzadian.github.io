@@ -51,4 +51,4 @@ Now let's see our data using `head()`:
 df.head()
 </pre>
 
-
+<img src='/images/data_head.png'>
