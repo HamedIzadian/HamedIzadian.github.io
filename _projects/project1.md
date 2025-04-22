@@ -36,4 +36,19 @@ sns.set_context("talk")
 
 We will import other libraries later! 
 
+## 2-2- Load Our Data: 
+
+First, we will load our data using `Pandas` and `read_csv`: 
+<pre style="font-size: 16px;">
+df = pd.read_csv('data.csv', parse_dates=['Date'], encoding='unicode_escape')
+</pre>
+
+* `parse_dates=['Date']` ensures that the `Date` column is parsed as a datetime object.
+* `encoding='unicode_escape'` Handles special characters or non-standard characters in our data.
+
+Now let's see our data using `head()`: 
+<pre style="font-size: 16px;">
+df.head()
+</pre>
+
 
