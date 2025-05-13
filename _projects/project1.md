@@ -65,7 +65,7 @@ First, let's see how many rows we have in our dataframe:
 len(df)
 </pre>
 
-We have `8760` rows in this dataframe! 
+We have `8760` rows in this dataframe! <br/>
 Using `df.info()`, we can identify columns with missing values. Here are the results:
 
 <img src='/images/bike_info.png'>
