@@ -52,3 +52,20 @@ df.head()
 </pre>
 
 <img src='/images/data_head.PNG'>
+
+## 2-3- Null Values: 
+
+### Why is it important to identify null values?
+Missing values can distort summary statistics and break machine learning algorithms, resulting in misleading or invalid results. A pattern of missingness itself can introduce bias if it's not random, so detecting and addressing nulls ensures your analysis stays accurate.
+
+### So, how can we find the null values in our dataframe? 
+First, let's see how many rows we have in our dataframe: 
+
+<pre style="font-size: 16px;">
+len(df)
+</pre>
+
+We have `8760` rows in this dataframe! 
+Using `df.info()`, we can identify columns with missing values. Here are the results:
+
+<img src='/images/bike_info.png'>
