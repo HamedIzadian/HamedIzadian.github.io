@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamed Izadian</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Hero-specific */
+        #hero {
+            min-height: 100vh;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 3rem 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-layout {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 4rem;
+            align-items: center;
+            width: 100%;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-photo-wrapper {
+            opacity: 0;
+            animation: fadeUp 0.8s var(--ease-out-expo) 0.5s forwards;
+        }
+
+        .hero-photo {
+            width: 300px;
+            height: 380px;
+            object-fit: cover;
+            border-radius: 6px;
+            border: 2px solid rgba(100, 255, 218, 0.15);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(100, 255, 218, 0.06);
+            transition: all 0.6s var(--ease-out-expo);
+        }
+
+        .hero-photo:hover {
+            border-color: rgba(100, 255, 218, 0.35);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.5), 0 0 60px rgba(100, 255, 218, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .seeking-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1.2rem;
+            background: rgba(100, 255, 218, 0.06);
+            border: 1px solid rgba(100, 255, 218, 0.15);
+            border-radius: 100px;
+            margin-bottom: 1.5rem;
+            width: fit-content;
+            opacity: 0;
+            animation: fadeUp 0.8s var(--ease-out-expo) 0.1s forwards;
+        }
+
+        .seeking-dot {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .seeking-badge span { font-size: 0.78rem; color: var(--accent); letter-spacing: 0.04em; }
+
+        .hero-eyebrow {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeUp 0.8s var(--ease-out-expo) 0.2s forwards;
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 8vw, 6.5rem);
+            font-weight: 400;
+            line-height: 1.05;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeUp 0.8s var(--ease-out-expo) 0.4s forwards;
+        }
+
+        .hero-title em { font-style: italic; color: var(--accent); }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 640px;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeUp 0.8s var(--ease-out-expo) 0.6s forwards;
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 3rem;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeUp 0.8s var(--ease-out-expo) 0.8s forwards;
+        }
+
+        .hero-meta-item { display: flex; flex-direction: column; gap: 0.25rem; }
+        .hero-meta-item .label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-muted); }
+        .hero-meta-item .value { font-size: 0.95rem; color: var(--text-primary); }
+
+        .hero-cta {
+            margin-top: 3rem;
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeUp 0.8s var(--ease-out-expo) 1s forwards;
+        }
+
+        /* About section below hero */
+        .about-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 3rem 6rem;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .about-text p { color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 1rem; }
+
+        .interests-list { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; }
+
+        .edu-sidebar { display: flex; flex-direction: column; gap: 1.5rem; }
+
+        .edu-degree { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 0.5rem; }
+        .card h3 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 400; margin-bottom: 0.3rem; }
+        .edu-university { color: var(--text-secondary); font-size: 0.9rem; }
+        .edu-details { color: var(--text-muted); font-size: 0.82rem; margin-top: 0.4rem; line-height: 1.6; }
+
+        @media (max-width: 900px) {
+            #hero { padding: 6rem 1.5rem 3rem; }
+            .hero-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+            .hero-photo-wrapper { order: -1; text-align: center; }
+            .hero-photo { width: 220px; height: 280px; }
+            .about-section { padding: 2rem 1.5rem 4rem; }
+            .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .hero-meta { gap: 2rem; }
+        }
+
+        @media (max-width: 500px) {
+            .hero-meta { flex-direction: column; gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-glow" id="glow"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="nav-brand">Hamed<span> </span>Izadian</a>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">About</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="Experiences.html">Experiences</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="cv.html">CV</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" onclick="closeMobile()">About</a>
+        <a href="publications.html" onclick="closeMobile()">Publications</a>
+        <a href="Experiences.html" onclick="closeMobile()">Experiences</a>
+        <a href="projects.html" onclick="closeMobile()">Projects</a>
+        <a href="cv.html" onclick="closeMobile()">CV</a>
+        <a href="blog.html" onclick="closeMobile()">Blog</a>
+        <a href="contact.html" onclick="closeMobile()">Contact</a>
+    </div>
+
+    <!-- Hero -->
+    <section id="hero">
+        <div class="hero-layout">
+            <div class="hero-content">
+                <div class="seeking-badge">
+                    <div class="seeking-dot"></div>
+                    <span>Actively seeking Ph.D. opportunities</span>
+                </div>
+                <p class="hero-eyebrow">M.Sc. in Industrial Engineering</p>
+                <h1 class="hero-title">Hamed<br><em>Izadian</em></h1>
+                <p class="hero-subtitle">
+                    Passionate about operations research, supply chain optimization, and machine learning. Seeking to advance knowledge at the intersection of mathematical modeling and intelligent systems.
+                </p>
+                <div class="hero-meta">
+                    <div class="hero-meta-item">
+                        <span class="label">Education</span>
+                        <span class="value">M.Sc., Kharazmi University</span>
+                    </div>
+                    
+                    <div class="hero-meta-item">
+                        <span class="label">Location</span>
+                        <span class="value">Tehran, Iran</span>
+                    </div>
+                </div>
+                <div class="hero-cta">
+                    <a href="publications.html" class="btn-primary">View Publications →</a>
+                    <a href="contact.html" class="btn-secondary">Get in Touch</a>
+                </div>
+            </div>
+            <div class="hero-photo-wrapper">
+                <img src="profile.jpg" alt="Hamed Izadian" class="hero-photo">
+            </div>
+        </div>
+    </section>
+
+    <!-- About content -->
+    <section class="about-section">
+        <div class="about-grid">
+            <div class="about-text">
+                <div class="reveal">
+                    <span class="section-label">About Me</span>
+                </div>
+                <div class="reveal">
+                    <p>
+                        I am Hamed, a recent graduate with a Master's degree in Industrial Engineering from Kharazmi University, where I defended my thesis on modeling a bi-objective closed-loop supply chain with robust optimization, considering imperfect quality and on-time delivery, under the supervision of Dr. Hamid Reza Pasandideh.
+                    </p>
+                </div>
+                <div class="reveal">
+                    <p>
+                        My main research interests are operations research, mathematical modeling, supply chain management, and machine learning. I am actively seeking Ph.D. opportunities in these fields to contribute to advancing knowledge in these domains.
+                    </p>
+                </div>
+                <div class="reveal">
+                    <p>
+                        Additionally, I am strongly interested in quality control, inventory management, healthcare systems, and data mining. I am eager to connect with researchers and professors worldwide.
+                    </p>
+                </div>
+                <div class="interests-list reveal">
+                    <span class="tag">Operations Research</span>
+                    <span class="tag">Mathematical Modeling</span>
+                    <span class="tag">Machine Learning</span>
+                    <span class="tag">Quality Control</span>
+                    <span class="tag">Inventory Management</span>
+                    <span class="tag">Supply Chain Management</span>
+                    <span class="tag">Healthcare Systems</span>
+                </div>
+            </div>
+
+            <div class="edu-sidebar stagger">
+                <div class="card reveal">
+                    <div class="edu-degree">M.Sc. · Sep 2022 – Sep 2025</div>
+                    <h3>Industrial Engineering</h3>
+                    <div class="edu-university">Kharazmi University, Tehran</div>
+                    <div class="edu-details">
+                        Advisor: Dr. Hamid Reza Pasandideh<br>
+                        Thesis: Modeling a bi-objective closed-loop supply chain with robust optimization and
+                        considering imperfect quality and on-time delivery<br>
+                        GPA: 18.42/20 (3.88/4)
+                    </div>
+                </div>
+                <div class="card reveal">
+                    <div class="edu-degree">B.Sc. · Sep 2018 – Sep 2022</div>
+                    <h3>Industrial Engineering</h3>
+                    <div class="edu-university">University of Tehran, Tehran</div>
+                    <div class="edu-details">
+                        GPA: 16.14/20 (3.34/4)
+                    </div>
+                </div>
+                <div class="card card-accent reveal">
+                    <div class="edu-degree">TOEFL iBT · Score: 94</div>
+                    <h3>English Proficiency</h3>
+                    <div class="edu-details">
+                        Reading: 21 · Listening: 25<br>
+                        Speaking: 25 · Writing: 23
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Hamed Izadian. All rights reserved.</p>
+        <div class="social-links">
+            <a href="https://github.com/HamedIzadian" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/hamed-izadian-bb6685168/" target="_blank">LinkedIn</a>
+            <a href="mailto:hamedizadian.acad@gmail.com">Email</a>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

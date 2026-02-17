@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiences — Hamed Izadian</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .teaching-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .course-semester { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 0.5rem; }
+        .card p { color: var(--text-secondary); font-size: 0.88rem; }
+
+        .experience-item {
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .exp-role { font-family: var(--font-display); font-size: 1.15rem; font-weight: 400; margin-bottom: 0.3rem; }
+        .exp-company { color: var(--accent); font-size: 0.88rem; margin-bottom: 0.3rem; }
+        .exp-date { color: var(--text-muted); font-size: 0.82rem; margin-bottom: 0.5rem; }
+        .exp-desc { color: var(--text-secondary); font-size: 0.88rem; }
+
+        .section-divider { margin-top: 5rem; }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-glow" id="glow"></div>
+
+    <nav>
+        <a href="index.html" class="nav-brand">Hamed<span> </span>Izadian</a>
+        <ul class="nav-links">
+            <li><a href="index.html">About</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="teaching.html" class="active">Experiences</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="cv.html">CV</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" onclick="closeMobile()">About</a>
+        <a href="publications.html" onclick="closeMobile()">Publications</a>
+        <a href="teaching.html" onclick="closeMobile()">Experiences</a>
+        <a href="projects.html" onclick="closeMobile()">Projects</a>
+        <a href="cv.html" onclick="closeMobile()">CV</a>
+        <a href="blog.html" onclick="closeMobile()">Blog</a>
+        <a href="contact.html" onclick="closeMobile()">Contact</a>
+    </div>
+
+    <div class="page-wrapper">
+        <div class="page-header reveal">
+            <span class="section-label">Teaching</span>
+            <h1 class="page-title">Teaching <em>Experience</em></h1>
+            <p class="page-subtitle">Teaching assistant positions at Kharazmi University across optimization, programming, and operations research courses.</p>
+        </div>
+
+        <div class="teaching-grid stagger">
+            <div class="card reveal">
+                <div class="course-semester">Fall 2024</div>
+                <h3>Operations Research II &amp; Mathematical Modeling in GAMS</h3>
+                <p>Teaching Assistant · Kharazmi University</p>
+                <p style="margin-top: 0.5rem; color: var(--text-muted); font-size: 0.82rem;">Assisted students with advanced OR concepts and hands-on mathematical modeling using GAMS software.</p>
+            </div>
+            <div class="card reveal">
+                <div class="course-semester">Spring 2024</div>
+                <h3>Integer Programming &amp; Inventory Control</h3>
+                <p>Teaching Assistant · Kharazmi University</p>
+                <p style="margin-top: 0.5rem; color: var(--text-muted); font-size: 0.82rem;">Covered integer programming formulations and inventory management theory and applications.</p>
+            </div>
+            <div class="card reveal">
+                <div class="course-semester">Fall 2023</div>
+                <h3>Operations Research II &amp; Python for Optimization (Gurobipy)</h3>
+                <p>Teaching Assistant · Kharazmi University</p>
+                <p style="margin-top: 0.5rem; color: var(--text-muted); font-size: 0.82rem;">Taught Python-based optimization using the Gurobipy library alongside advanced operations research topics.</p>
+            </div>
+        </div>
+
+        <!-- Work Experience -->
+        <div class="section-divider">
+            <div class="reveal">
+                <span class="section-label">Work Experience</span>
+                <h2 class="page-title" >Industry <em>Experience</em></h2>
+            </div>
+            <div class="stagger">
+                <div class="experience-item reveal">
+                    <div class="exp-role">Intern — Production Processes Design &amp; Group Logistics</div>
+                    <div class="exp-company">Saipa Automotive</div>
+                    <div class="exp-date">Jul 2022 – Aug 2022</div>
+                    <div class="exp-desc">Conducted motion and time study on the automotive production line. Worked on plant layout optimization for improved production efficiency.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Hamed Izadian. All rights reserved.</p>
+        <div class="social-links">
+            <a href="https://github.com/HamedIzadian" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/hamed-izadian-bb6685168/" target="_blank">LinkedIn</a>
+            <a href="mailto:hamedizadian.acad@gmail.com">Email</a>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

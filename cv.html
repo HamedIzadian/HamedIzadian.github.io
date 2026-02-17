@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV — Hamed Izadian</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .cv-actions {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .cv-section { margin-bottom: 3rem; }
+
+        .cv-section-title {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
+            color: var(--accent);
+        }
+
+        .cv-entry { margin-bottom: 1.5rem; }
+        .cv-entry-title { font-family: var(--font-display); font-size: 1.05rem; font-weight: 400; margin-bottom: 0.2rem; }
+        .cv-entry-sub { color: var(--text-secondary); font-size: 0.9rem; }
+        .cv-entry-date { color: var(--text-muted); font-size: 0.82rem; margin-top: 0.2rem; }
+        .cv-entry-detail { color: var(--text-muted); font-size: 0.85rem; margin-top: 0.3rem; line-height: 1.6; }
+
+        .cv-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        @media (max-width: 900px) {
+            .cv-grid { grid-template-columns: 1fr; gap: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-glow" id="glow"></div>
+
+    <nav>
+        <a href="index.html" class="nav-brand">Hamed<span> </span>Izadian</a>
+        <ul class="nav-links">
+            <li><a href="index.html">About</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="Experiences.html">Experiences</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="cv.html" class="active">CV</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" onclick="closeMobile()">About</a>
+        <a href="publications.html" onclick="closeMobile()">Publications</a>
+        <a href="Experiences.html" onclick="closeMobile()">Experiences</a>
+        <a href="projects.html" onclick="closeMobile()">Projects</a>
+        <a href="cv.html" onclick="closeMobile()">CV</a>
+        <a href="blog.html" onclick="closeMobile()">Blog</a>
+        <a href="contact.html" onclick="closeMobile()">Contact</a>
+    </div>
+
+    <div class="page-wrapper">
+        <div class="page-header reveal">
+            <span class="section-label">Curriculum Vitae</span>
+            <h1 class="page-title">My <em>CV</em></h1>
+            <p class="page-subtitle">A summary of my academic background, research, and experience. Download the full PDF below.</p>
+        </div>
+
+        <div class="cv-actions reveal">
+            <a href="HamedIzadian_CV.pdf" class="btn-primary" download>Download CV (PDF) ↓</a>
+            <a href="contact.html" class="btn-secondary">Contact Me</a>
+        </div>
+
+        <div class="cv-grid">
+            <div>
+                <!-- Education -->
+                <div class="cv-section reveal">
+                    <div class="cv-section-title">Education</div>
+                    <div class="cv-entry">
+                        <div class="cv-entry-title">M.Sc. in Industrial Engineering</div>
+                        <div class="cv-entry-sub">Kharazmi University, Tehran, Iran</div>
+                        <div class="cv-entry-date">Sep 2022 – Sep 2025</div>
+                        <div class="cv-entry-detail">
+                            Advisor: Dr. Hamid Reza Pasandideh<br>
+                            Thesis: Modeling a bi-objective closed-loop supply chain with robust optimization and considering imperfect quality and on-time delivery<br>
+                            GPA: 18.42/20 (3.88/4)
+                        </div>
+                    </div>
+                    <div class="cv-entry">
+                        <div class="cv-entry-title">B.Sc. in Industrial Engineering</div>
+                        <div class="cv-entry-sub">University of Tehran, Tehran, Iran</div>
+                        <div class="cv-entry-date">Sep 2018 – Sep 2022</div>
+                        <div class="cv-entry-detail">GPA: 16.14/20 (3.34/4)</div>
+                    </div>
+                </div>
+
+                <!-- Publications -->
+                <div class="cv-section reveal">
+                    <div class="cv-section-title">Publications</div>
+                    <div class="cv-entry">
+                        <div class="cv-entry-title">Submitted Paper(s)</div>
+                        <div class="cv-entry-detail">Izadian, H., & Pasandideh, S. H. R. Modeling a bi-objective closed-loop supply chain considering imperfect quality production and on-time delivery. <em>Annals of Operations Research</em>.</div>
+                    </div>
+                    <div class="cv-entry">
+                        <div class="cv-entry-title">Working Paper(s)</div>
+                        <div class="cv-entry-detail">Izadian, H., & Pasandideh, S. H. R. The Multi-Depot Multi-Trip VRP with Simultaneous Pickup and Delivery Under Stochastic Traveling Times.</div>
+                    </div>
+                </div>
+
+                <!-- Teaching -->
+                <div class="cv-section reveal">
+                    <div class="cv-section-title">Teaching Experience</div>
+                    <div class="cv-entry">
+                        <div class="cv-entry-title">TA: Operations Research II &amp; Mathematical Modeling in GAMS</div>
+                        <div class="cv-entry-sub">Kharazmi University</div>
+                        <div class="cv-entry-date">Fall 2024</div>
+                    </div>
+                    <div class="cv-entry">
+                        <div class="cv-entry-title">TA: Integer Programming &amp; Inventory Control</div>
+                        <div class="cv-entry-sub">Kharazmi University</div>
+                        <div class="cv-entry-date">Spring 2024</div>
+                    </div>
+                    <div class="cv-entry">
+                        <div class="cv-entry-title">TA: Operations Research II &amp; Python for Optimization (Gurobipy)</div>
+                        <div class="cv-entry-sub">Kharazmi University</div>
+                        <div class="cv-entry-date">Fall 2023</div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <!-- Honors -->
+                <div class="cv-section reveal">
+                    <div class="cv-section-title">Honors &amp; Awards</div>
+                    <div class="cv-entry">
+                        <div class="cv-entry-detail">Top 5% among ~144,000 participants in the National Entrance Examination for Iranian universities</div>
+                    </div>
+                    <div class="cv-entry">
+                        <div class="cv-entry-detail">3rd top student among 20 in Industrial Engineering M.Sc., Kharazmi University</div>
+                    </div>
+                </div>
+
+                <!-- Skills -->
+                <div class="cv-section reveal">
+                    <div class="cv-section-title">Skills</div>
+                    <div class="cv-entry">
+                        <div class="cv-entry-title">Programming</div>
+                        <div class="cv-entry-detail">Python, C++, MATLAB, GAMS, Gurobipy, DOCPLEX, HTML/CSS, Java</div>
+                    </div>
+                    <div class="cv-entry">
+                        <div class="cv-entry-title">Software</div>
+                        <div class="cv-entry-detail">MS Project, Enterprise Dynamics, VS Code, IBM CPLEX Studio</div>
+                    </div>
+                    <div class="cv-entry">
+                        <div class="cv-entry-title">Mathematical</div>
+                        <div class="cv-entry-detail">Operations Research, Mathematical Modeling, Integer Programming, Linear Algebra, Robust Optimization</div>
+                    </div>
+                </div>
+
+                <!-- Language -->
+                <div class="cv-section reveal">
+                    <div class="cv-section-title">Language</div>
+                    <div class="cv-entry">
+                        <div class="cv-entry-title">TOEFL iBT: 94</div>
+                        <div class="cv-entry-detail">R: 21 · L: 25 · S: 25 · W: 23</div>
+                    </div>
+                </div>
+
+                <!-- Certifications -->
+                <div class="cv-section reveal">
+                    <div class="cv-section-title">Certifications</div>
+                    <div class="cv-entry">
+                        <div class="cv-entry-detail">
+                            Optimization in Python using Gurobipy &amp; DOCPLEX (2025)<br>
+                            Robust Optimization &amp; Decision-Making Under Uncertainty (2025)<br>
+                            GAMS for Optimization (2024)<br>
+                            Supply Chain Analytics in Python — DataCamp (2024)<br>
+                            Simulation with Enterprise Dynamics — Sharif UT (2022)<br>
+                            Programming for Everybody — Coursera (2022)
+                        </div>
+                    </div>
+                </div>
+
+                <!-- References -->
+                <div class="cv-section reveal">
+                    <div class="cv-section-title">References</div>
+                    <div class="cv-entry">
+                        <div class="cv-entry-title">Dr. Hamid Reza Pasandideh</div>
+                        <div class="cv-entry-sub">Associate Professor, Kharazmi University</div>
+                        <div class="cv-entry-detail"><a href="mailto:SHR_Pasandideh@khu.ac.ir">SHR_Pasandideh@khu.ac.ir</a></div>
+                    </div>
+                    <div class="cv-entry">
+                        <div class="cv-entry-title">Dr. Ashkan Mozdgir</div>
+                        <div class="cv-entry-sub">Assistant Professor, Kharazmi University</div>
+                        <div class="cv-entry-detail"><a href="mailto:a.mozdgir@khu.ac.ir">a.mozdgir@khu.ac.ir</a></div>
+                    </div>
+                    <div class="cv-entry">
+                        <div class="cv-entry-title">Dr. Salman Nazari Shirkoohi</div>
+                        <div class="cv-entry-sub">Associate Professor, University of Tehran</div>
+                        <div class="cv-entry-detail"><a href="mailto:snnazari@ut.ac.ir">snnazari@ut.ac.ir</a></div>
+                    </div>
+                    <div class="cv-entry">
+                        <div class="cv-entry-title">Dr. Mohamad Sadegh Sangari</div>
+                        <div class="cv-entry-sub">Research Associate, Toronto Metropolitan University</div>
+                        <div class="cv-entry-detail"><a href="mailto:mssangari@torontomu.ca">mssangari@torontomu.ca</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Hamed Izadian. All rights reserved.</p>
+        <div class="social-links">
+            <a href="https://github.com/HamedIzadian" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/hamed-izadian-bb6685168/" target="_blank">LinkedIn</a>
+            <a href="mailto:hamedizadian.acad@gmail.com">Email</a>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

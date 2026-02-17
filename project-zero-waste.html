@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zero Waste Management in Automotive Industry</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Keeping your existing styles intact */
+        .project-detail-hero {
+            width: 100%;
+            height: 340px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 30%, #0f3460 60%, rgba(100, 255, 218, 0.12) 100%);
+        }
+
+        .project-detail-hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-detail-hero .placeholder-icon {
+            font-size: 5rem;
+            opacity: 0.25;
+        }
+
+        .project-detail-hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 120px;
+            background: linear-gradient(to top, var(--bg-primary), transparent);
+        }
+
+        .project-detail-wrapper {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 3rem 3rem 6rem;
+        }
+
+        .project-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            transition: color 0.3s;
+            opacity: 1;
+        }
+
+        .project-back:hover { color: var(--accent); opacity: 1; }
+
+        .project-back svg {
+            width: 14px; height: 14px;
+            stroke: currentColor; stroke-width: 2; fill: none;
+        }
+
+        .project-detail-tag {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+            display: inline-block;
+        }
+
+        .project-detail-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 400;
+            line-height: 1.15;
+            margin-bottom: 1rem;
+        }
+
+        .project-detail-title em { font-style: italic; color: var(--accent); }
+
+        .project-detail-meta {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 2.5rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .project-detail-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .project-detail-section h2 {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .project-detail-section p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.9;
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .project-detail-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .project-detail-section ul li {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            line-height: 1.8;
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-detail-section ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .project-tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 900px) {
+            .project-detail-wrapper { padding: 2rem 1.5rem 4rem; }
+            .project-detail-hero { height: 240px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-glow" id="glow"></div>
+
+    <nav>
+        <a href="index.html" class="nav-brand">Hamed<span> </span>Izadian</a>
+        <ul class="nav-links">
+            <li><a href="index.html">About</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="Experiences.html">Experiences</a></li>
+            <li><a href="projects.html" class="active">Projects</a></li>
+            <li><a href="cv.html">CV</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" onclick="closeMobile()">About</a>
+        <a href="publications.html" onclick="closeMobile()">Publications</a>
+        <a href="Experiences.html" onclick="closeMobile()">Experiences</a>
+        <a href="projects.html" onclick="closeMobile()">Projects</a>
+        <a href="cv.html" onclick="closeMobile()">CV</a>
+        <a href="blog.html" onclick="closeMobile()">Blog</a>
+        <a href="contact.html" onclick="closeMobile()">Contact</a>
+    </div>
+
+    <div style="padding-top: 72px;">
+        <div class="project-detail-hero">
+            <img src="Circular-Economy-Banner.jpg" alt="Circular Economy Banner">
+        </div>
+    </div>
+
+    <div class="project-detail-wrapper">
+        <a href="projects.html" class="project-back">
+            <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Back to Projects
+        </a>
+
+        <div class="project-detail-tag">Circular Economy · ISM-MICMAC</div>
+        <h1 class="project-detail-title">Evaluation of Barriers to Zero Waste in the <em>Automotive Industry</em></h1>
+        <div class="project-detail-meta">University of Tehran · Summer 2022</div>
+
+        <div class="project-detail-section">
+            <h2>Overview</h2>
+            <p>
+                As global industries face the imperative of environmental sustainability, the automotive sector faces significant challenges in managing waste generation. This project addresses the critical transition from a "Linear Economy" (take-make-dispose) to a "Circular Economy" (reduce-reuse-recycle).
+            </p>
+            <p>
+                The study focuses on evaluating the barriers impeding the implementation of Zero Waste management systems. By identifying 14 specific obstacles—ranging from technological limitations to regulatory gaps—this research provides a structural model to assist decision-makers in prioritizing interventions for achieving a closed-loop supply chain.
+            </p>
+        </div>
+
+        <div class="project-detail-section">
+            <h2>Methodology</h2>
+            <p>
+                The research adopted a multi-phase quantitative and qualitative approach to analyze the complex interrelationships among barriers. The methodology proceeded in four distinct stages:
+            </p>
+            <ul>
+                <li><strong>Barrier Identification:</strong> A comprehensive literature review identified 14 key barriers to Zero Waste adoption.</li>
+                <li><strong>Expert Validation:</strong> A panel of industry experts from SAIPA Corporation (including process design and logistics specialists) validated the relevance of these barriers.</li>
+                <li><strong>Interpretive Structural Modeling (ISM):</strong> A Structural Self-Interaction Matrix (SSIM) was developed to map the contextual relationships between barriers, resulting in an 8-level hierarchical model.</li>
+                <li><strong>MICMAC Analysis:</strong> Barriers were classified into four clusters (Autonomous, Dependent, Linkage, and Independent) based on their driving power and dependence power to identify root causes.</li>
+            </ul>
+        </div>
+
+        <div class="project-detail-section">
+            <h2>Key Findings</h2>
+            <p>
+                The structural analysis revealed that the barriers to Zero Waste are not isolated but interconnected in a hierarchical system. The key academic findings include:
+            </p>
+            <ul>
+                <li><strong>Root Causes (Independent Variables):</strong> The study identified "Lack of government support" (B13) and "Financial constraints" (B3) as the foundational barriers. These variables possess high driving power, influencing all other levels of the system.</li>
+                <li><strong>Linkage Variables:</strong> "Technological difficulties" (B2) emerged as a linkage variable, indicating it is an unstable element that is both highly influential and highly sensitive to other factors.</li>
+                <li><strong>Dependent Outcomes:</strong> Issues such as "Lack of supply chain integration" (B9) and "Lack of public interest" (B6) were identified as Level 1 dependent variables—meaning they are symptoms resulting from the unresolved foundational issues.</li>
+            </ul>
+        </div>
+
+        <div class="project-detail-section">
+            <h2>Technologies & Concepts</h2>
+            <div class="project-tech-tags">
+                <span class="tag">Interpretive Structural Modeling (ISM)</span>
+                <span class="tag">MICMAC Analysis</span>
+                <span class="tag">Circular Economy (CE)</span>
+                <span class="tag">Zero Waste Management</span>
+                <span class="tag">Operations Research</span>
+                <span class="tag">Supply Chain Optimization</span>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Hamed Izadian. All rights reserved.</p>
+        <div class="social-links">
+            <a href="https://github.com/HamedIzadian" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/hamed-izadian-bb6685168/" target="_blank">LinkedIn</a>
+            <a href="mailto:hamedizadian.acad@gmail.com">Email</a>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

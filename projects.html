@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects — Hamed Izadian</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            opacity: 1;
+        }
+
+        .project-card-link:hover { opacity: 1; }
+
+        .project-card-link .card {
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .project-card-link .card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .project-hero-img {
+            width: calc(100% + 4rem);
+            height: 200px;
+            margin: -2rem -2rem 1.5rem -2rem;
+            object-fit: cover;
+            display: block;
+        }
+
+        .project-hero-placeholder {
+            width: calc(100% + 4rem);
+            height: 200px;
+            margin: -2rem -2rem 1.5rem -2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-hero-placeholder.zoom-out1 img {
+            width: 150%;
+            height: 150%;
+            /* 'contain' ensures the whole image is visible (zoomed out) */
+            object-fit: contain; 
+            /* This centers the image in the box */
+            object-position: center; 
+        }
+
+        .project-hero-placeholder.zoom-out2 img {
+            width: 180%;
+            height: 180%;
+            /* 'contain' ensures the whole image is visible (zoomed out) */
+            object-fit: contain; 
+            /* This centers the image in the box */
+            object-position: center; 
+        }
+
+        .project-hero-placeholder.gradient-1 {
+            background: linear-gradient(135deg, #0d1b2a 0%, #1b2838 30%, #0a4040 60%, rgba(100, 255, 218, 0.15) 100%);
+        }
+
+        .project-hero-placeholder.gradient-2 {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 30%, #0f3460 60%, rgba(100, 255, 218, 0.12) 100%);
+        }
+
+        .project-hero-placeholder .placeholder-icon {
+            font-size: 2.5rem;
+            opacity: 0.3;
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-hero-placeholder::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(to top, var(--bg-card), transparent);
+        }
+
+        .project-tag { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 0.75rem; display: inline-block; }
+        .card h3 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 400; margin-bottom: 0.5rem; }
+        .card p { color: var(--text-secondary); font-size: 0.88rem; line-height: 1.7; }
+        .project-meta { color: var(--text-muted); font-size: 0.78rem; margin-top: 0.8rem; font-style: italic; }
+
+        .project-view-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-top: 1rem;
+            font-size: 0.82rem;
+            color: var(--accent);
+            font-weight: 400;
+            letter-spacing: 0.03em;
+        }
+
+        .project-view-link svg {
+            width: 14px;
+            height: 14px;
+            stroke: var(--accent);
+            stroke-width: 2;
+            fill: none;
+            transition: transform 0.3s;
+        }
+
+        .project-card-link:hover .project-view-link svg {
+            transform: translateX(4px);
+        }
+
+        /* Skills & Certs */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .skill-cat-title {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+        .section-divider { margin-top: 5rem; }
+
+        /* Awards */
+        .awards-list { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2rem; }
+
+        .award-item {
+            display: flex;
+            gap: 1.5rem;
+            align-items: start;
+        }
+
+        .award-icon {
+            font-size: 1.3rem;
+            flex-shrink: 0;
+            width: 40px; height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--accent-dim);
+            border-radius: 4px;
+        }
+
+        .award-item h3 { font-family: var(--font-display); font-size: 1.05rem; font-weight: 400; margin-bottom: 0.3rem; }
+        .award-item p { color: var(--text-muted); font-size: 0.85rem; }
+
+        @media (max-width: 500px) {
+            .projects-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-glow" id="glow"></div>
+
+    <nav>
+        <a href="index.html" class="nav-brand">Hamed<span> </span>Izadian</a>
+        <ul class="nav-links">
+            <li><a href="index.html">About</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="Experiences.html">Experiences</a></li>
+            <li><a href="projects.html" class="active">Projects</a></li>
+            <li><a href="cv.html">CV</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" onclick="closeMobile()">About</a>
+        <a href="publications.html" onclick="closeMobile()">Publications</a>
+        <a href="Experiences.html" onclick="closeMobile()">Experiences</a>
+        <a href="projects.html" onclick="closeMobile()">Projects</a>
+        <a href="cv.html" onclick="closeMobile()">CV</a>
+        <a href="blog.html" onclick="closeMobile()">Blog</a>
+        <a href="contact.html" onclick="closeMobile()">Contact</a>
+    </div>
+
+    <div class="page-wrapper">
+        <div class="page-header reveal">
+            <span class="section-label">Projects</span>
+            <h1 class="page-title">Selected <em>Projects</em></h1>
+            <p class="page-subtitle">Academic and course projects. Visit my <a href="https://github.com/HamedIzadian" target="_blank">GitHub</a> for more.</p>
+        </div>
+
+        <div class="projects-grid stagger">
+            <a href="project-bike-sharing.html" class="project-card-link reveal">
+                <div class="card">
+                    <div class="project-hero-placeholder zoom-out2 gradient-1">
+                        <img src="bikesharingdemand.jpg" alt="Bike Sharing Demand Prediction">
+                    </div>
+                    <div class="project-tag">Data Mining</div>
+                    <h3>Bike Sharing Demand Prediction</h3>
+                    <p>Developed predictive models for bike-sharing demand using data mining techniques and machine learning algorithms.</p>
+                    <div class="project-meta">Data-mining Course · Kharazmi University · Spring 2023</div>
+                    <div class="project-view-link">
+                        View details
+                        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </div>
+                </div>
+            </a>
+            <a href="project-zero-waste.html" class="project-card-link reveal">
+                <div class="card">
+                    <div class="project-hero-placeholder zoom-out1 gradient-2">
+                        <img src="world-environment-day-arrangement-with-recycling-sign.jpg" alt="Zero Waste in Automotive Industry">
+                    </div>
+                    <div class="project-tag">Circular Economy</div>
+                    <h3>Zero Waste in Automotive Industry</h3>
+                    <p>Analysis of barriers to implementation of zero waste management in the automotive industry using the ISM-fuzzy MICMAC approach.</p>
+                    <div class="project-meta">University of Tehran · Jul – Aug 2022</div>
+                    <div class="project-view-link">
+                        View details
+                        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+      
+
+    <footer>
+        <p>© 2026 Hamed Izadian. All rights reserved.</p>
+        <div class="social-links">
+            <a href="https://github.com/HamedIzadian" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/hamed-izadian-bb6685168/" target="_blank">LinkedIn</a>
+            <a href="mailto:hamedizadian.acad@gmail.com">Email</a>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications — Hamed Izadian</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .pub-item {
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .pub-item:hover { padding-left: 1rem; }
+
+        .pub-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .pub-header-content { flex: 1; }
+
+        .pub-toggle {
+            flex-shrink: 0;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            background: transparent;
+            color: var(--accent);
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 0.3rem;
+        }
+
+        .pub-toggle:hover {
+            background: var(--accent-dim);
+            border-color: var(--accent);
+        }
+
+        .pub-toggle svg {
+            width: 14px;
+            height: 14px;
+            stroke: var(--accent);
+            stroke-width: 2;
+            fill: none;
+            transition: transform 0.4s var(--ease-out-expo);
+        }
+
+        .pub-item.expanded .pub-toggle svg {
+            transform: rotate(180deg);
+        }
+
+        .pub-type {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent);
+            margin-bottom: 0.6rem;
+            display: inline-block;
+        }
+
+        .pub-title {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .pub-venue { font-size: 0.88rem; color: var(--accent); font-style: italic; margin-bottom: 0.3rem; }
+        .pub-authors { font-size: 0.88rem; color: var(--text-muted); }
+
+        .pub-abstract {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s var(--ease-out-expo), opacity 0.4s ease, margin 0.4s ease;
+            opacity: 0;
+            margin-top: 0;
+        }
+
+        .pub-item.expanded .pub-abstract {
+            max-height: 600px;
+            opacity: 1;
+            margin-top: 1.2rem;
+        }
+
+        .pub-abstract-inner {
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-left: 2px solid var(--accent);
+            border-radius: 4px;
+        }
+
+        .pub-abstract-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+        }
+
+        .pub-abstract-inner p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .research-areas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .research-card {
+            padding: 2rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            background: var(--bg-card);
+            transition: all 0.5s var(--ease-out-expo);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .research-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 2px;
+            background: linear-gradient(90deg, var(--accent), transparent);
+            opacity: 0; transition: opacity 0.4s;
+        }
+
+        .research-card:hover { border-color: var(--border-hover); background: var(--bg-card-hover); transform: translateY(-4px); }
+        .research-card:hover::before { opacity: 1; }
+        .research-icon { font-size: 1.5rem; margin-bottom: 1rem; }
+        .research-card h3 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 400; margin-bottom: 0.6rem; }
+        .research-card p { color: var(--text-secondary); font-size: 0.85rem; line-height: 1.7; }
+
+        .section-divider { margin-top: 5rem; }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-glow" id="glow"></div>
+
+    <nav>
+        <a href="index.html" class="nav-brand">Hamed<span> </span>Izadian</a>
+        <ul class="nav-links">
+            <li><a href="index.html">About</a></li>
+            <li><a href="publications.html" class="active">Publications</a></li>
+            <li><a href="Experiences.html">Experiences</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="cv.html">CV</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" onclick="closeMobile()">About</a>
+        <a href="publications.html" onclick="closeMobile()">Publications</a>
+        <a href="Experiences.html" onclick="closeMobile()">Experiences</a>
+        <a href="projects.html" onclick="closeMobile()">Projects</a>
+        <a href="cv.html" onclick="closeMobile()">CV</a>
+        <a href="blog.html" onclick="closeMobile()">Blog</a>
+        <a href="contact.html" onclick="closeMobile()">Contact</a>
+    </div>
+
+    <div class="page-wrapper">
+        <div class="page-header reveal">
+            <span class="section-label">Publications</span>
+            <h1 class="page-title">Research <em>Output</em></h1>
+            <p class="page-subtitle">My published and ongoing research in operations research, supply chain optimization, and vehicle routing. Click on any publication to read the abstract.</p>
+        </div>
+
+        <!-- Submitted Papers -->
+        <div class="stagger">
+            <div class="pub-item reveal" onclick="toggleAbstract(this)">
+                <div class="pub-header">
+                    <div class="pub-header-content">
+                        <div class="pub-type">Submitted Paper</div>
+                        <div class="pub-title">Modeling a bi-objective closed-loop supply chain considering imperfect quality production and on-time delivery</div>
+                        <div class="pub-venue">Computers & Chemical Engineering</div>
+                        <div class="pub-authors">Izadian, H., &amp; Pasandideh, S. H. R.</div>
+                    </div>
+                    <button class="pub-toggle" aria-label="Toggle abstract">
+                        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                </div>
+                <div class="pub-abstract">
+                    <div class="pub-abstract-inner">
+                        <div class="pub-abstract-label">Abstract</div>
+                        <p>In this study, we propose a bi-objective optimization model for a closed-loop supply chain that considers imperfect quality production at the manufacturing stage and accounts for potential inspection errors at distribution centers. The model explicitly incorporates on-time delivery constraints through specified time windows, allowing for the strategic selection of vehicles that simultaneously minimize operational costs and environmental impacts. To address the multi-objective nature of the problem, we employed two established solution methods—the LP-metric method and the Min-Max method—and subsequently evaluated their performance through the Technique for Order Preference by Similarity to Ideal Solution (TOPSIS) and Analysis of Variance (ANOVA). Finally, we conducted a sensitivity analysis to validate the robustness and practical applicability of the proposed model under varying operational conditions.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pub-item reveal" onclick="toggleAbstract(this)">
+                <div class="pub-header">
+                    <div class="pub-header-content">
+                        <div class="pub-type">Working Paper</div>
+                        <div class="pub-title">The Multi-Depot Multi-Trip VRP with Simultaneous Pickup and Delivery Under Stochastic Traveling Times</div>
+                        <div class="pub-authors">Izadian, H., &amp; Pasandideh, S. H. R.</div>
+                    </div>
+                    <button class="pub-toggle" aria-label="Toggle abstract">
+                        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                </div>
+                <div class="pub-abstract">
+                    <div class="pub-abstract-inner">
+                        <div class="pub-abstract-label">Abstract</div>
+                        <p>This study addresses the Vehicle Routing Problem with Simultaneous Pickup and Delivery within the context of urban logistics, incorporating multi-trip operations and multi-depot configurations under stochastic travel time conditions. A Mixed-Integer Programming formulation is developed to minimize total operational costs, explicitly distinguishing between regular and overtime labor wages to reflect real-world economic constraints. To mitigate the computational complexity introduced by traffic uncertainty, a linearized robust optimization approach is employed, transforming stochastic travel time constraints into deterministic equivalents based on a minimal confidence interval.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Research Areas -->
+        <div class="section-divider">
+            <div class="reveal">
+                <span class="section-label">Research Interests</span>
+                <h2 class="page-title" style="font-size: clamp(1.8rem, 3vw, 2.5rem);">Areas of <em>Focus</em></h2>
+            </div>
+            <div class="research-areas stagger">
+                <div class="research-card reveal">
+                    <div class="research-icon">◉</div>
+                    <h3>Operations Research</h3>
+                    <p>Optimization methods, integer programming, and robust frameworks for complex decision-making.</p>
+                </div>
+                <div class="research-card reveal">
+                    <div class="research-icon">◎</div>
+                    <h3>Mathematical Modeling</h3>
+                    <p>Bi-objective and stochastic models for real-world industrial and supply chain problems.</p>
+                </div>
+                <div class="research-card reveal">
+                    <div class="research-icon">⬡</div>
+                    <h3>Supply Chain Management</h3>
+                    <p>Closed-loop supply chains, vehicle routing, inventory, and logistics under uncertainty.</p>
+                </div>
+                <div class="research-card reveal">
+                    <div class="research-icon">△</div>
+                    <h3>Machine Learning</h3>
+                    <p>Supervised learning, data mining, and ML-enhanced approaches for OR problems.</p>
+                </div>
+                <div class="research-card reveal">
+                    <div class="research-icon">◇</div>
+                    <h3>Quality Control</h3>
+                    <p>Imperfect quality production systems integrated with supply chain optimization.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Hamed Izadian. All rights reserved.</p>
+        <div class="social-links">
+            <a href="https://github.com/HamedIzadian" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/hamed-izadian-bb6685168/" target="_blank">LinkedIn</a>
+            <a href="mailto:hamedizadian.acad@gmail.com">Email</a>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        function toggleAbstract(item) {
+            document.querySelectorAll('.pub-item.expanded').forEach(el => {
+                if (el !== item) el.classList.remove('expanded');
+            });
+            item.classList.toggle('expanded');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog — Hamed Izadian</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 2rem;
+        }
+
+        .blog-card {
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            background: var(--bg-card);
+            overflow: hidden;
+            transition: all 0.5s var(--ease-out-expo);
+        }
+
+        .blog-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .blog-card-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            filter: brightness(0.85) saturate(0.9);
+            transition: all 0.5s var(--ease-out-expo);
+        }
+
+        .blog-card:hover .blog-card-image {
+            filter: brightness(1) saturate(1);
+            transform: scale(1.03);
+        }
+
+        .blog-card-image-wrapper {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .blog-card-image-wrapper::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 60px;
+            background: linear-gradient(transparent, var(--bg-card));
+            pointer-events: none;
+        }
+
+        /* Placeholder for posts without images */
+        .blog-card-placeholder {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, var(--bg-card-hover) 0%, var(--bg-primary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--text-muted);
+            opacity: 0.4;
+        }
+
+        .blog-card-body {
+            padding: 1.5rem 2rem 2rem;
+        }
+
+        .blog-card-date {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+        }
+
+        .blog-card-tag {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            background: var(--accent-dim);
+            border: 1px solid rgba(100, 255, 218, 0.15);
+            border-radius: 2px;
+            font-size: 0.68rem;
+            color: var(--accent);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-left: 0.75rem;
+        }
+
+        .blog-card-title {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 400;
+            line-height: 1.35;
+            margin-bottom: 0.75rem;
+        }
+
+        .blog-card-title a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.3s;
+            opacity: 1;
+        }
+
+        .blog-card-title a:hover {
+            color: var(--accent);
+        }
+
+        .blog-card-summary {
+            color: var(--text-secondary);
+            font-size: 0.88rem;
+            line-height: 1.7;
+        }
+
+        .blog-card-read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-top: 1.2rem;
+            font-size: 0.8rem;
+            color: var(--accent);
+            text-decoration: none;
+            letter-spacing: 0.03em;
+            opacity: 1;
+            transition: gap 0.3s var(--ease-out-expo);
+        }
+
+        .blog-card-read-more:hover {
+            gap: 0.7rem;
+            opacity: 1;
+        }
+
+        /* Empty state */
+        .blog-empty {
+            text-align: center;
+            padding: 4rem 2rem;
+            border: 1px dashed var(--border-hover);
+            border-radius: 4px;
+            margin-top: 2rem;
+        }
+
+        .blog-empty p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 500px) {
+            .blog-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-glow" id="glow"></div>
+
+    <nav>
+        <a href="index.html" class="nav-brand">Hamed<span> </span>Izadian</a>
+        <ul class="nav-links">
+            <li><a href="index.html">About</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="Experiences.html">Experiences</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="cv.html">CV</a></li>
+            <li><a href="blog.html" class="active">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" onclick="closeMobile()">About</a>
+        <a href="publications.html" onclick="closeMobile()">Publications</a>
+        <a href="Experiences.html" onclick="closeMobile()">Experiences</a>
+        <a href="projects.html" onclick="closeMobile()">Projects</a>
+        <a href="cv.html" onclick="closeMobile()">CV</a>
+        <a href="blog.html" onclick="closeMobile()">Blog</a>
+        <a href="contact.html" onclick="closeMobile()">Contact</a>
+    </div>
+
+    <div class="page-wrapper">
+        <div class="page-header reveal">
+            <span class="section-label">Blog</span>
+            <h1 class="page-title">Thoughts &amp; <em>Stories</em></h1>
+            <p class="page-subtitle">Non-academic writing — ideas, interests, and things I find worth sharing.</p>
+        </div>
+
+        <div class="blog-grid stagger">
+
+            <!-- ═══════ BLOG POST 1 (sample — replace with your own) ═══════ -->
+            <div class="blog-card reveal">
+                <div class="blog-card-image-wrapper">
+                    <!-- Replace src with your image path, e.g. "images/blog/post1.jpg" -->
+                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800&q=80" alt="Blog post cover" class="blog-card-image">
+                </div>
+                <div class="blog-card-body">
+                    <div class="blog-card-date">
+                        Feb 10, 2025
+                        <span class="blog-card-tag">Travel</span>
+                    </div>
+                    <!-- Replace href with the link to your full blog post -->
+                    <h2 class="blog-card-title">
+                        <a href="#">A Weekend in the Mountains</a>
+                    </h2>
+                    <p class="blog-card-summary">
+                        A short reflection on disconnecting from screens and reconnecting with nature during a weekend hiking trip. Sometimes the best optimization is knowing when to stop optimizing.
+                    </p>
+                    <a href="#" class="blog-card-read-more">Read more →</a>
+                </div>
+            </div>
+
+            <!-- ═══════ BLOG POST 2 (sample) ═══════ -->
+            <div class="blog-card reveal">
+                <div class="blog-card-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1550439062-609e1531270e?w=800&q=80" alt="Blog post cover" class="blog-card-image">
+                </div>
+                <div class="blog-card-body">
+                    <div class="blog-card-date">
+                        Jan 22, 2025
+                        <span class="blog-card-tag">Books</span>
+                    </div>
+                    <h2 class="blog-card-title">
+                        <a href="#">Books That Shaped My Thinking in 2024</a>
+                    </h2>
+                    <p class="blog-card-summary">
+                        A roundup of the most impactful books I read last year — spanning decision-making, philosophy, and a couple of novels that caught me off guard.
+                    </p>
+                    <a href="#" class="blog-card-read-more">Read more →</a>
+                </div>
+            </div>
+
+            
+        </div>
+
+        <!--
+        ╔══════════════════════════════════════════════════════════════╗
+        ║  HOW TO ADD A NEW BLOG POST:                                ║
+        ║                                                              ║
+        ║  1. Copy one of the <div class="blog-card reveal"> blocks   ║
+        ║  2. Replace the <img src="..."> with your image path        ║
+        ║  3. Update the date and tag                                  ║
+        ║  4. Change the <a href="..."> in the title to your post URL ║
+        ║  5. Write your summary in the <p> tag                       ║
+        ║  6. Update the "Read more" link href as well                ║
+        ║                                                              ║
+        ║  For posts without an image, replace the                     ║
+        ║  <div class="blog-card-image-wrapper">...</div> with:       ║
+        ║  <div class="blog-card-placeholder">✎</div>                ║
+        ╚══════════════════════════════════════════════════════════════╝
+        -->
+
+    </div>
+
+    <footer>
+        <p>© 2026 Hamed Izadian. All rights reserved.</p>
+        <div class="social-links">
+            <a href="https://github.com/HamedIzadian" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/hamed-izadian-bb6685168/" target="_blank">LinkedIn</a>
+            <a href="mailto:hamedizadian.acad@gmail.com">Email</a>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
